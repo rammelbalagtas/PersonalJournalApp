@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PersonalJournal.MVCApp;
 using PersonalJournal.Models.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PersonalJournal.MVCApp.Controllers
 {
+    [Authorize]
     public class MoodsController : Controller
     {
         private readonly PersonalJournalDBContext _context;
