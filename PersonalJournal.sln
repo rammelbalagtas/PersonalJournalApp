@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalJournal.Models", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalJournal.MVCApp", "PersonalJournal.MVCApp\PersonalJournal.MVCApp.csproj", "{77B47106-B992-45E2-99DF-D8CE9DA50D1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalJournal.WebAPI", "PersonalJournal.WebAPI\PersonalJournal.WebAPI.csproj", "{A3AAFAC3-2EA9-475F-90C1-C43974F86681}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{77B47106-B992-45E2-99DF-D8CE9DA50D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77B47106-B992-45E2-99DF-D8CE9DA50D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77B47106-B992-45E2-99DF-D8CE9DA50D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AAFAC3-2EA9-475F-90C1-C43974F86681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AAFAC3-2EA9-475F-90C1-C43974F86681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AAFAC3-2EA9-475F-90C1-C43974F86681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AAFAC3-2EA9-475F-90C1-C43974F86681}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
