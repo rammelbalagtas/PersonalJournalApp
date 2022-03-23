@@ -11,5 +11,7 @@ namespace PersonalJournal.MVCApp
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Subsection> Subsections { get; set; }
+        public DbSet<Mood> Moods { get; set; }
     }
 }
