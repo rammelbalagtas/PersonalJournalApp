@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PersonalJournal.MVCApp;
 
 namespace PersonalJournal.MVCApp
 {
@@ -35,6 +36,12 @@ namespace PersonalJournal.MVCApp
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            //services.AddDbContext<DbContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("PersonalJournalDB")));
+
+               services.AddDbContext<PersonalJournalDBContext>(options =>
+            options.UseInMemoryDatabase("PersonalJournalDB", builder => { }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
