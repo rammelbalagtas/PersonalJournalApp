@@ -36,7 +36,7 @@ namespace PersonalJournal.MVCApp.Controllers
             }
 
             var subsection = await _context.Subsections
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (subsection == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace PersonalJournal.MVCApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,Title,LongDescription")] Subsection subsection)
         {
-            if (id != subsection.id)
+            if (id != subsection.Id)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace PersonalJournal.MVCApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SubsectionExists(subsection.id))
+                    if (!SubsectionExists(subsection.Id))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace PersonalJournal.MVCApp.Controllers
             }
 
             var subsection = await _context.Subsections
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (subsection == null)
             {
                 return NotFound();
@@ -149,7 +149,7 @@ namespace PersonalJournal.MVCApp.Controllers
 
         private bool SubsectionExists(int id)
         {
-            return _context.Subsections.Any(e => e.id == id);
+            return _context.Subsections.Any(e => e.Id == id);
         }
     }
 }

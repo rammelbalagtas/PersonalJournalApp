@@ -36,7 +36,7 @@ namespace PersonalJournal.MVCApp.Controllers
             }
 
             var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (category == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace PersonalJournal.MVCApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,Title,LongDescription")] Category category)
         {
-            if (id != category.id)
+            if (id != category.Id)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace PersonalJournal.MVCApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryExists(category.id))
+                    if (!CategoryExists(category.Id))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace PersonalJournal.MVCApp.Controllers
             }
 
             var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (category == null)
             {
                 return NotFound();
@@ -149,7 +149,7 @@ namespace PersonalJournal.MVCApp.Controllers
 
         private bool CategoryExists(int id)
         {
-            return _context.Categories.Any(e => e.id == id);
+            return _context.Categories.Any(e => e.Id == id);
         }
     }
 }

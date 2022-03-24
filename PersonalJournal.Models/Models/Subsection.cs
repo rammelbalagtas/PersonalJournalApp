@@ -7,7 +7,7 @@ namespace PersonalJournal.Models.Models
     {
         [Key]
         [Required]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(100)]
         public string Title { get; set; }

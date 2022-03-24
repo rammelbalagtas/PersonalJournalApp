@@ -36,7 +36,7 @@ namespace PersonalJournal.MVCApp.Controllers
             }
 
             var mood = await _context.Moods
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (mood == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace PersonalJournal.MVCApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,Title")] Mood mood)
         {
-            if (id != mood.id)
+            if (id != mood.Id)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace PersonalJournal.MVCApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MoodExists(mood.id))
+                    if (!MoodExists(mood.Id))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace PersonalJournal.MVCApp.Controllers
             }
 
             var mood = await _context.Moods
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (mood == null)
             {
                 return NotFound();
@@ -149,7 +149,7 @@ namespace PersonalJournal.MVCApp.Controllers
 
         private bool MoodExists(int id)
         {
-            return _context.Moods.Any(e => e.id == id);
+            return _context.Moods.Any(e => e.Id == id);
         }
     }
 }
