@@ -12,47 +12,47 @@ namespace PersonalJournal.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class MoodsController : ControllerBase
     {
         private readonly PersonalJournalDBContext _context;
 
-        public CategoriesController(PersonalJournalDBContext context)
+        public MoodsController(PersonalJournalDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Categories
+        // GET: api/Moods
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        public async Task<ActionResult<IEnumerable<Mood>>> GetMoods()
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Moods.ToListAsync();
         }
 
-        // GET: api/Categories/5
+        // GET: api/Moods/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<Mood>> GetMood(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var mood = await _context.Moods.FindAsync(id);
 
-            if (category == null)
+            if (mood == null)
             {
                 return NotFound();
             }
 
-            return category;
+            return mood;
         }
 
-        // PUT: api/Categories/5
+        // PUT: api/Moods/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, Category category)
+        public async Task<IActionResult> PutMood(int id, Mood mood)
         {
-            if (id != category.Id)
+            if (id != mood.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(category).State = EntityState.Modified;
+            _context.Entry(mood).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace PersonalJournal.WebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(id))
+                if (!MoodExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace PersonalJournal.WebAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Categories
+        // POST: api/Moods
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<ActionResult<Mood>> PostMood(Mood mood)
         {
-            _context.Categories.Add(category);
+            _context.Moods.Add(mood);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return CreatedAtAction("GetMood", new { id = mood.Id }, mood);
         }
 
-        // DELETE: api/Categories/5
+        // DELETE: api/Moods/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteMood(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
+            var mood = await _context.Moods.FindAsync(id);
+            if (mood == null)
             {
                 return NotFound();
             }
 
-            _context.Categories.Remove(category);
+            _context.Moods.Remove(mood);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CategoryExists(int id)
+        private bool MoodExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return _context.Moods.Any(e => e.Id == id);
         }
     }
 }

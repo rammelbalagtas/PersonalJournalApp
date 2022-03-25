@@ -12,47 +12,47 @@ namespace PersonalJournal.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class SubsectionsController : ControllerBase
     {
         private readonly PersonalJournalDBContext _context;
 
-        public CategoriesController(PersonalJournalDBContext context)
+        public SubsectionsController(PersonalJournalDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Categories
+        // GET: api/Subsections
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        public async Task<ActionResult<IEnumerable<Subsection>>> GetSubsections()
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Subsections.ToListAsync();
         }
 
-        // GET: api/Categories/5
+        // GET: api/Subsections/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<Subsection>> GetSubsection(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var subsection = await _context.Subsections.FindAsync(id);
 
-            if (category == null)
+            if (subsection == null)
             {
                 return NotFound();
             }
 
-            return category;
+            return subsection;
         }
 
-        // PUT: api/Categories/5
+        // PUT: api/Subsections/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, Category category)
+        public async Task<IActionResult> PutSubsection(int id, Subsection subsection)
         {
-            if (id != category.Id)
+            if (id != subsection.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(category).State = EntityState.Modified;
+            _context.Entry(subsection).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace PersonalJournal.WebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(id))
+                if (!SubsectionExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace PersonalJournal.WebAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Categories
+        // POST: api/Subsections
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<ActionResult<Subsection>> PostSubsection(Subsection subsection)
         {
-            _context.Categories.Add(category);
+            _context.Subsections.Add(subsection);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return CreatedAtAction("GetSubsection", new { id = subsection.Id }, subsection);
         }
 
-        // DELETE: api/Categories/5
+        // DELETE: api/Subsections/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteSubsection(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
+            var subsection = await _context.Subsections.FindAsync(id);
+            if (subsection == null)
             {
                 return NotFound();
             }
 
-            _context.Categories.Remove(category);
+            _context.Subsections.Remove(subsection);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CategoryExists(int id)
+        private bool SubsectionExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return _context.Subsections.Any(e => e.Id == id);
         }
     }
 }

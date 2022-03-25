@@ -13,7 +13,8 @@ namespace PersonalJournal.WebAPI.Data
             : base(options)
         {
         }
-
-        public DbSet<Category> Category { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Subsection> Subsections { get; set; }
+        public DbSet<Mood> Moods { get; set; }
     }
 }
