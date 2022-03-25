@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using PersonalJournal.WebAPI.Data;
 
 namespace PersonalJournal.WebAPI
 {
@@ -32,6 +34,11 @@ namespace PersonalJournal.WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PersonalJournal.WebAPI", Version = "v1" });
             });
+
+            //services.AddDbContext<PersonalJournalDBContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("PersonalJournalDB")));
+
+            services.AddDbContext<PersonalJournalDBContext>(options => options.UseInMemoryDatabase("PersonalJournalDB", builder => { }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
