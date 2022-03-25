@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using PersonalJournal.MVCApp;
 using PersonalJournal.Models.Models;
 using Microsoft.AspNetCore.Authorization;
+using PersonalJournal.MVCApp.Data;
 
 namespace PersonalJournal.MVCApp.Controllers
 {
