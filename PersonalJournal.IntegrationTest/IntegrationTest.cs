@@ -40,6 +40,7 @@ namespace PersonalJournal.IntegrationTest
             Assert.IsTrue(_webDriver.Title.Contains("Register"));
         }
 
+        // CATEGORIES TESTING
         [TestMethod]
         public void Test_Title_Categories()
         {
@@ -49,7 +50,15 @@ namespace PersonalJournal.IntegrationTest
         }
 
         [TestMethod]
-        public void Test_Add_Category()
+        public void Test_Title_Create_Category()
+        {
+            simulateLogin();
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Categories/Create/");
+            Assert.IsTrue(_webDriver.Title.Contains("Create Category"));
+        }
+
+        [TestMethod]
+        public void Test_Create_Category()
         {
             simulateLogin();
             //navigate to add new categories and submit
@@ -63,6 +72,41 @@ namespace PersonalJournal.IntegrationTest
             Assert.IsTrue(true);
         }
 
+        // SUBSECTION TESTING
+        [TestMethod]
+        public void Test_Title_Subsections()
+        {
+            simulateLogin();
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Subsections/");
+            Assert.IsTrue(_webDriver.Title.Contains("Subsections"));
+        }
+
+        [TestMethod]
+        public void Test_Title_Create_Subsection()
+        {
+            simulateLogin();
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Subsections/Create/");
+            Assert.IsTrue(_webDriver.Title.Contains("Create Subsection"));
+        }
+
+        // MOOD TYPES TESTING
+        [TestMethod]
+        public void Test_Title_MoodTypes()
+        {
+            simulateLogin();
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Moods/");
+            Assert.IsTrue(_webDriver.Title.Contains("Mood Type"));
+        }
+
+        [TestMethod]
+        public void Test_Title_Create_MoodTypes()
+        {
+            simulateLogin();
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Moods/Create/");
+            Assert.IsTrue(_webDriver.Title.Contains("Create Mood Type"));
+        }
+
+        // HELPER METHOD TO SIMULATE LOGIN
         private void simulateLogin()
         {
             //log in to the page first
