@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PersonalJournal.Models.Models
 {
@@ -10,6 +11,7 @@ namespace PersonalJournal.Models.Models
         [Required]
         [StringLength(50)]
         public string Title { get; set; }
+        [DisplayName("Description")]
         public string LongDescription { get; set; }
     }
 }
