@@ -1,0 +1,108 @@
+﻿@model PersonalJournal.Models.Models.JournalEntry
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>JournalEntry</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubsectionText1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubsectionText1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubsectionText2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubsectionText2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubsectionText3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubsectionText3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubsectionText4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubsectionText4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubsectionText5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubsectionText5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mood)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mood.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subsection1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subsection1.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subsection2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subsection2.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subsection3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subsection3.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subsection4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subsection4.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subsection5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subsection5.Title)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

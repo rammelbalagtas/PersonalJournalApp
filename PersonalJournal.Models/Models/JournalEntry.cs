@@ -25,33 +25,44 @@ namespace PersonalJournal.Models.Models
         public int MoodId { get; set; }
         public DateTime DateTime { get; set; }
         public string Description { get; set; }
-        [ForeignKey("Subsection")]
+
+        [ForeignKey("Subsection1")]
         [DisplayName("Subsection 1")]
-        public int SubSection1 { get; set; }
+        public int SubsectionId1 { get; set; }
         [DisplayName("Subsection Description")]
-        public string SubSectionText1 { get; set; }
-        [ForeignKey("Subsection")]
+        public string SubsectionText1 { get; set; }
+
+        [ForeignKey("Subsection2")]
         [DisplayName("Subsection 2")]
-        public int SubSection2 { get; set; }
+        public int SubsectionId2 { get; set; }
         [DisplayName("Subsection Description")]
-        public string SubSectionText2 { get; set; }
-        [ForeignKey("Subsection")]
+        public string SubsectionText2 { get; set; }
+
+        [ForeignKey("Subsection3")]
         [DisplayName("Subsection 3")]
-        public int SubSection3 { get; set; }
+        public int SubsectionId3 { get; set; }
         [DisplayName("Subsection Description")]
-        public string SubSectionText3 { get; set; }
-        [ForeignKey("Subsection")]
+        public string SubsectionText3 { get; set; }
+
+        [ForeignKey("Subsection4")]
         [DisplayName("Subsection 4")]
-        public int SubSection4 { get; set; }
+        public int SubsectionId4 { get; set; }
         [DisplayName("Subsection Description")]
-        public string SubSectionText4 { get; set; }
-        [ForeignKey("Subsection")]
+        public string SubsectionText4 { get; set; }
+
+        [ForeignKey("Subsection5")]
         [DisplayName("Subsection 5")]
-        public int SubSection5 { get; set; }
+        public int SubsectionId5 { get; set; }
         [DisplayName("Subsection Description")]
-        public string SubSectionText5 { get; set; }
+        public string SubsectionText5 { get; set; }
+
         public Category Category { get; set; }
-        public Subsection Subsection { get; set; }
+        public Mood Mood { get; set; }
+        public Subsection Subsection1 { get; set; }
+        public Subsection Subsection2 { get; set; }
+        public Subsection Subsection3 { get; set; }
+        public Subsection Subsection4 { get; set; }
+        public Subsection Subsection5 { get; set; }
 
     }
 }

@@ -15,6 +15,5 @@ namespace PersonalJournal.Models.Models
         public string Title { get; set; }
         [DisplayName("Description")]
         public string LongDescription { get; set; }
-        public ICollection<JournalEntry> JournalEntries { get; set; }
     }
 }
