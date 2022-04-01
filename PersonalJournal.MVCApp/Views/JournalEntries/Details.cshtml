@@ -1,107 +1,154 @@
 ﻿@model PersonalJournal.Models.Models.JournalEntry
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Journal Entry Details";
 }
 
 <h1>Details</h1>
 
-<div>
-    <h4>JournalEntry</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubsectionText1)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SubsectionText1)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubsectionText2)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SubsectionText2)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubsectionText3)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SubsectionText3)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubsectionText4)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SubsectionText4)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubsectionText5)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SubsectionText5)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mood)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mood.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Subsection1)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Subsection1.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Subsection2)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Subsection2.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Subsection3)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Subsection3.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Subsection4)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Subsection4.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Subsection5)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Subsection5.Title)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="row form-group">
+            <div class="col-md-2 align-items-start">
+                <label asp-for="Title" class="control-label"></label>
+            </div>
+            <div class="col-md-4 align-items-start">
+                <input readonly asp-for="Title" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2 align-items-start">
+                <label asp-for="CategoryId" class="control-label"></label>
+            </div>
+            <div class="col-md-4 align-items-start">
+                <input readonly class="form-control" value="@Model.Category.Title" />
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2 align-items-start">
+                <label asp-for="MoodId" class="control-label"></label>
+            </div>
+            <div class="col-md-4 align-items-start">
+                <input readonly class="form-control" value="@Model.Mood.Title" />
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2 align-items-start">
+                <label asp-for="DateTime" class="control-label"></label>
+            </div>
+            <div class="col-md-3 align-items-start">
+                <input readonly asp-for="DateTime" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2 align-items-start">
+                <label asp-for="Description" class="control-label"></label>
+            </div>
+            <div class="col-md-5 align-items-start">
+                <textarea readonly rows="5" cols="50" asp-for="Description" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <h5>Subsections</h5>
+        <div class="row form-group"></div>
+
+        <div class="row form-group">
+            <div class="col-md-4 align-items-start">
+                <label asp-for="SubsectionId1" class="control-label"></label>
+                @if (Model.Subsection1 == null)
+                {
+                    <input readonly class="form-control" />
+                }
+                else
+                {
+                    <input readonly class="form-control" value="Model.Subsection1.Title" />
+                }
+            </div>
+            <div class="col-md-5 align-items-start">
+                <label asp-for="SubsectionText1" class="control-label"></label>
+                <textarea readonly rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-4 align-items-start">
+                <label asp-for="SubsectionId2" class="control-label"></label>
+                @if (Model.Subsection2 == null)
+                {
+                    <input readonly class="form-control" />
+                }
+                else
+                {
+                    <input readonly class="form-control" value="Model.Subsection2.Title" />
+                }
+            </div>
+            <div class="col-md-5 align-items-start">
+                <label asp-for="SubsectionText2" class="control-label"></label>
+                <textarea readonly rows="5" cols="50" asp-for="SubsectionText2" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-4 align-items-start">
+                <label asp-for="SubsectionId3" class="control-label"></label>
+                @if (Model.Subsection3 == null)
+                {
+                    <input readonly class="form-control" />
+                }
+                else
+                {
+                    <input readonly class="form-control" value="Model.Subsection3.Title" />
+                }
+            </div>
+            <div class="col-md-5 align-items-start">
+                <label asp-for="SubsectionText3" class="control-label"></label>
+                <textarea readonly rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-4 align-items-start">
+                <label asp-for="SubsectionId4" class="control-label"></label>
+                @if (Model.Subsection4 == null)
+                {
+                    <input readonly class="form-control" />
+                }
+                else
+                {
+                    <input readonly class="form-control" value="Model.Subsection4.Title" />
+                }
+            </div>
+            <div class="col-md-5 align-items-start">
+                <label asp-for="SubsectionText4" class="control-label"></label>
+                <textarea readonly rows="5" cols="50" asp-for="SubsectionText4" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-4 align-items-start">
+                <label asp-for="SubsectionId5" class="control-label"></label>
+                @if (Model.Subsection5 == null)
+                {
+                    <input readonly class="form-control" />
+                }
+                else
+                {
+                    <input readonly class="form-control" value="Model.Subsection5.Title" />
+                }
+            </div>
+            <div class="col-md-5 align-items-start">
+                <label asp-for="SubsectionText5" class="control-label"></label>
+                <textarea readonly rows="5" cols="50" asp-for="SubsectionText5" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
 </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

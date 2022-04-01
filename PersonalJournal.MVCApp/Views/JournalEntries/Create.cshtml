@@ -1,7 +1,7 @@
 ﻿@model PersonalJournal.Models.Models.JournalEntry
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Journal Entry";
 }
 
 <h4>Journal Entry</h4>
@@ -28,6 +28,7 @@
                 </div>
                 <div class="col-md-4 align-items-start">
                     <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
             </div>
 
@@ -37,6 +38,7 @@
                 </div>
                 <div class="col-md-4 align-items-start">
                     <select asp-for="MoodId" class="form-control" asp-items="ViewBag.MoodId"></select>
+                    <span asp-validation-for="MoodId" class="text-danger"></span>
                 </div>
             </div>
 
@@ -54,8 +56,8 @@
                 <div class="col-md-2 align-items-start">
                     <label asp-for="Description" class="control-label"></label>
                 </div>
-                <div class="col-md-2 align-items-start">
-                    <input asp-for="Description" class="form-control" />
+                <div class="col-md-5 align-items-start">
+                    <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
             </div>

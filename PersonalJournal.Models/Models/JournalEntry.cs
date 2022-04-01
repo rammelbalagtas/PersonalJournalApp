@@ -23,6 +23,7 @@ namespace PersonalJournal.Models.Models
         [ForeignKey("Mood")]
         [DisplayName("Mood")]
         public int MoodId { get; set; }
+        [DisplayName("Date and Time")]
         public DateTime DateTime { get; set; }
         public string Description { get; set; }
 
