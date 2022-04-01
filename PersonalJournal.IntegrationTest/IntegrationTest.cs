@@ -106,6 +106,23 @@ namespace PersonalJournal.IntegrationTest
             Assert.IsTrue(_webDriver.Title.Contains("Create Mood Type"));
         }
 
+        // JOURNAL ENTRIES TESTING
+        [TestMethod]
+        public void Test_Title_JournalEntries()
+        {
+            simulateLogin();
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/JournalEntries/");
+            Assert.IsTrue(_webDriver.Title.Contains("Journal Entries"));
+        }
+
+        [TestMethod]
+        public void Test_Title_Create_JournalEntries()
+        {
+            simulateLogin();
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/JournalEntries/Create/");
+            Assert.IsTrue(_webDriver.Title.Contains("Create Journal Entry"));
+        }
+
         // HELPER METHOD TO SIMULATE LOGIN
         private void simulateLogin()
         {
