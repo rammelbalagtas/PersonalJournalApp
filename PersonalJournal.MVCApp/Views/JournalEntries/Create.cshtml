@@ -4,88 +4,135 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>JournalEntry</h4>
+<h4>Journal Entry</h4>
 <hr />
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+
+            <div class="row form-group">
+                <div class="col-md-2 align-items-start">
+                    <label asp-for="Title" class="control-label"></label>
+                </div>
+                <div class="col-md-4 align-items-start">
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+
+            <div class="row form-group">
+                <div class="col-md-2 align-items-start">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                </div>
+                <div class="col-md-4 align-items-start">
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="MoodId" class="control-label"></label>
-                <select asp-for="MoodId" class ="form-control" asp-items="ViewBag.MoodId"></select>
+
+            <div class="row form-group">
+                <div class="col-md-2 align-items-start">
+                    <label asp-for="MoodId" class="control-label"></label>
+                </div>
+                <div class="col-md-4 align-items-start">
+                    <select asp-for="MoodId" class="form-control" asp-items="ViewBag.MoodId"></select>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="DateTime" class="control-label"></label>
-                <input asp-for="DateTime" class="form-control" />
-                <span asp-validation-for="DateTime" class="text-danger"></span>
+
+            <div class="row form-group">
+                <div class="col-md-2 align-items-start">
+                    <label asp-for="DateTime" class="control-label"></label>
+                </div>
+                <div class="col-md-3 align-items-start">
+                    <input asp-for="DateTime" class="form-control" />
+                    <span asp-validation-for="DateTime" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+
+            <div class="row form-group">
+                <div class="col-md-2 align-items-start">
+                    <label asp-for="Description" class="control-label"></label>
+                </div>
+                <div class="col-md-2 align-items-start">
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SubsectionId1" class="control-label"></label>
-                <select asp-for="SubsectionId1" class ="form-control" asp-items="ViewBag.SubsectionId1"></select>
+
+            <h5>Subsections</h5>
+            <div class="row form-group"></div>
+
+            <div class="row form-group">
+                <div class="col-md-4 align-items-start">
+                    <label asp-for="SubsectionId1" class="control-label"></label>
+                    <select asp-for="SubsectionId1" class="form-control" asp-items="ViewBag.SubsectionId1"></select>
+                </div>
+                <div class="col-md-5 align-items-start">
+                    <label asp-for="SubsectionText1" class="control-label"></label>
+                    <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
+                    <span asp-validation-for="SubsectionText1" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SubsectionText1" class="control-label"></label>
-                <input asp-for="SubsectionText1" class="form-control" />
-                <span asp-validation-for="SubsectionText1" class="text-danger"></span>
+
+            <div class="row form-group">
+                <div class="col-md-4 align-items-start">
+                    <label asp-for="SubsectionId2" class="control-label"></label>
+                    <select asp-for="SubsectionId2" class="form-control" asp-items="ViewBag.SubsectionId2"></select>
+                </div>
+                <div class="col-md-5 align-items-start">
+                    <label asp-for="SubsectionText2" class="control-label"></label>
+                    <textarea rows="5" cols="50" asp-for="SubsectionText2" class="form-control"></textarea>
+                    <span asp-validation-for="SubsectionText2" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SubsectionId2" class="control-label"></label>
-                <select asp-for="SubsectionId2" class ="form-control" asp-items="ViewBag.SubsectionId2"></select>
+
+            <div class="row form-group">
+                <div class="col-md-4 align-items-start">
+                    <label asp-for="SubsectionId3" class="control-label"></label>
+                    <select asp-for="SubsectionId3" class="form-control" asp-items="ViewBag.SubsectionId3"></select>
+                </div>
+                <div class="col-md-5 align-items-start">
+                    <label asp-for="SubsectionText3" class="control-label"></label>
+                    <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
+                    <span asp-validation-for="SubsectionText3" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SubsectionText2" class="control-label"></label>
-                <input asp-for="SubsectionText2" class="form-control" />
-                <span asp-validation-for="SubsectionText2" class="text-danger"></span>
+
+            <div class="row form-group">
+                <div class="col-md-4 align-items-start">
+                    <label asp-for="SubsectionId4" class="control-label"></label>
+                    <select asp-for="SubsectionId4" class="form-control" asp-items="ViewBag.SubsectionId1"></select>
+                </div>
+                <div class="col-md-5 align-items-start">
+                    <label asp-for="SubsectionText4" class="control-label"></label>
+                    <textarea rows="5" cols="50" asp-for="SubsectionText4" class="form-control"></textarea>
+                    <span asp-validation-for="SubsectionText4" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SubsectionId3" class="control-label"></label>
-                <select asp-for="SubsectionId3" class ="form-control" asp-items="ViewBag.SubsectionId3"></select>
+
+            <div class="row form-group">
+                <div class="col-md-4 align-items-start">
+                    <label asp-for="SubsectionId5" class="control-label"></label>
+                    <select asp-for="SubsectionId5" class="form-control" asp-items="ViewBag.SubsectionId5"></select>
+                </div>
+                <div class="col-md-5 align-items-start">
+                    <label asp-for="SubsectionText5" class="control-label"></label>
+                    <textarea rows="5" cols="50" asp-for="SubsectionText5" class="form-control"></textarea>
+                    <span asp-validation-for="SubsectionText5" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SubsectionText3" class="control-label"></label>
-                <input asp-for="SubsectionText3" class="form-control" />
-                <span asp-validation-for="SubsectionText3" class="text-danger"></span>
+
+            <div class="row form-group">
+                <div class="col align-items-start">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SubsectionId4" class="control-label"></label>
-                <select asp-for="SubsectionId4" class ="form-control" asp-items="ViewBag.SubsectionId4"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubsectionText4" class="control-label"></label>
-                <input asp-for="SubsectionText4" class="form-control" />
-                <span asp-validation-for="SubsectionText4" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubsectionId5" class="control-label"></label>
-                <select asp-for="SubsectionId5" class ="form-control" asp-items="ViewBag.SubsectionId5"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubsectionText5" class="control-label"></label>
-                <input asp-for="SubsectionText5" class="form-control" />
-                <span asp-validation-for="SubsectionText5" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
         </form>
     </div>
 </div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>

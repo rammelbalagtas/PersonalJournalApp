@@ -56,11 +56,16 @@ namespace PersonalJournal.MVCApp.Controllers
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title");
             ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title");
-            ViewData["SubsectionId1"] = new SelectList(_context.Subsections, "Id", "Title");
-            ViewData["SubsectionId2"] = new SelectList(_context.Subsections, "Id", "Title");
-            ViewData["SubsectionId3"] = new SelectList(_context.Subsections, "Id", "Title");
-            ViewData["SubsectionId4"] = new SelectList(_context.Subsections, "Id", "Title");
-            ViewData["SubsectionId5"] = new SelectList(_context.Subsections, "Id", "Title");
+
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "", Value = "" });
+            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            ViewData["SubsectionId1"] = items;
+            ViewData["SubsectionId2"] = items;
+            ViewData["SubsectionId3"] = items;
+            ViewData["SubsectionId4"] = items;
+            ViewData["SubsectionId5"] = items;
+
             return View();
         }
 
@@ -79,11 +84,21 @@ namespace PersonalJournal.MVCApp.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title", journalEntry.CategoryId);
             ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title", journalEntry.MoodId);
-            ViewData["SubsectionId1"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId1);
-            ViewData["SubsectionId2"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId2);
-            ViewData["SubsectionId3"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId3);
-            ViewData["SubsectionId4"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId4);
-            ViewData["SubsectionId5"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId5);
+
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "", Value = "" });
+            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            ViewData["SubsectionId1"] = items;
+            ViewData["SubsectionId2"] = items;
+            ViewData["SubsectionId3"] = items;
+            ViewData["SubsectionId4"] = items;
+            ViewData["SubsectionId5"] = items;
+
+            //ViewData["SubsectionId1"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId1);
+            //ViewData["SubsectionId2"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId2);
+            //ViewData["SubsectionId3"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId3);
+            //ViewData["SubsectionId4"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId4);
+            //ViewData["SubsectionId5"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId5);
             return View(journalEntry);
         }
 
@@ -102,11 +117,21 @@ namespace PersonalJournal.MVCApp.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title", journalEntry.CategoryId);
             ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title", journalEntry.MoodId);
-            ViewData["SubsectionId1"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId1);
-            ViewData["SubsectionId2"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId2);
-            ViewData["SubsectionId3"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId3);
-            ViewData["SubsectionId4"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId4);
-            ViewData["SubsectionId5"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId5);
+
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "", Value = "" });
+            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            ViewData["SubsectionId1"] = items;
+            ViewData["SubsectionId2"] = items;
+            ViewData["SubsectionId3"] = items;
+            ViewData["SubsectionId4"] = items;
+            ViewData["SubsectionId5"] = items;
+
+            //ViewData["SubsectionId1"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId1);
+            //ViewData["SubsectionId2"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId2);
+            //ViewData["SubsectionId3"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId3);
+            //ViewData["SubsectionId4"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId4);
+            //ViewData["SubsectionId5"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId5);
             return View(journalEntry);
         }
 
@@ -144,11 +169,21 @@ namespace PersonalJournal.MVCApp.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title", journalEntry.CategoryId);
             ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title", journalEntry.MoodId);
-            ViewData["SubsectionId1"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId1);
-            ViewData["SubsectionId2"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId2);
-            ViewData["SubsectionId3"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId3);
-            ViewData["SubsectionId4"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId4);
-            ViewData["SubsectionId5"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId5);
+
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "", Value = "" });
+            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            ViewData["SubsectionId1"] = items;
+            ViewData["SubsectionId2"] = items;
+            ViewData["SubsectionId3"] = items;
+            ViewData["SubsectionId4"] = items;
+            ViewData["SubsectionId5"] = items;
+
+            //ViewData["SubsectionId1"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId1);
+            //ViewData["SubsectionId2"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId2);
+            //ViewData["SubsectionId3"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId3);
+            //ViewData["SubsectionId4"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId4);
+            //ViewData["SubsectionId5"] = new SelectList(_context.Subsections, "Id", "Title", journalEntry.SubsectionId5);
             return View(journalEntry);
         }
 

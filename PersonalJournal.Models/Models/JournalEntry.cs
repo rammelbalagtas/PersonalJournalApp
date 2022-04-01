@@ -28,31 +28,31 @@ namespace PersonalJournal.Models.Models
 
         [ForeignKey("Subsection1")]
         [DisplayName("Subsection 1")]
-        public int SubsectionId1 { get; set; }
+        public int? SubsectionId1 { get; set; }
         [DisplayName("Subsection Description")]
         public string SubsectionText1 { get; set; }
 
         [ForeignKey("Subsection2")]
         [DisplayName("Subsection 2")]
-        public int SubsectionId2 { get; set; }
+        public int? SubsectionId2 { get; set; }
         [DisplayName("Subsection Description")]
         public string SubsectionText2 { get; set; }
 
         [ForeignKey("Subsection3")]
         [DisplayName("Subsection 3")]
-        public int SubsectionId3 { get; set; }
+        public int? SubsectionId3 { get; set; }
         [DisplayName("Subsection Description")]
         public string SubsectionText3 { get; set; }
 
         [ForeignKey("Subsection4")]
         [DisplayName("Subsection 4")]
-        public int SubsectionId4 { get; set; }
+        public int? SubsectionId4 { get; set; }
         [DisplayName("Subsection Description")]
         public string SubsectionText4 { get; set; }
 
         [ForeignKey("Subsection5")]
         [DisplayName("Subsection 5")]
-        public int SubsectionId5 { get; set; }
+        public int? SubsectionId5 { get; set; }
         [DisplayName("Subsection Description")]
         public string SubsectionText5 { get; set; }
 
