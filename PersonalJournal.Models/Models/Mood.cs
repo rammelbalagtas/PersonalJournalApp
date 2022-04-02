@@ -11,6 +11,7 @@ namespace PersonalJournal.Models.Models
         [Required]
         [StringLength(50)]
         public string Title { get; set; }
+        public string CreatedByUser { get; set; }
         public ICollection<JournalEntry> JournalEntries { get; set; }
     }
 }

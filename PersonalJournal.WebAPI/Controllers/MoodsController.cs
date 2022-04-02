@@ -23,9 +23,9 @@ namespace PersonalJournal.WebAPI.Controllers
 
         // GET: api/Moods
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Mood>>> GetMoods()
+        public async Task<ActionResult<IEnumerable<Mood>>> GetMoods(string createdByUser)
         {
-            return await _context.Moods.ToListAsync();
+            return await _context.Moods.Where(e => e.CreatedByUser == createdByUser).ToListAsync();
         }
 
         // GET: api/Moods/5

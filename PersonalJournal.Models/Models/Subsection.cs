@@ -13,6 +13,7 @@ namespace PersonalJournal.Models.Models
         [Required]
         [StringLength(100)]
         public string Title { get; set; }
+        public string CreatedByUser { get; set; }
         [DisplayName("Description")]
         public string LongDescription { get; set; }
     }

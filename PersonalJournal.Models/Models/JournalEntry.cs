@@ -56,6 +56,7 @@ namespace PersonalJournal.Models.Models
         public int? SubsectionId5 { get; set; }
         [DisplayName("Subsection Description")]
         public string SubsectionText5 { get; set; }
+        public string CreatedByUser { get; set; }
 
         public Category Category { get; set; }
         public Mood Mood { get; set; }

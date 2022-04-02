@@ -25,7 +25,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            return View(await _context.Categories.Where(e => e.CreatedByUser == User.Identity.Name).ToListAsync());
         }
 
         // GET: Categories/Details/5
@@ -61,6 +61,7 @@ namespace PersonalJournal.MVCApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.CreatedByUser = User.Identity.Name;
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

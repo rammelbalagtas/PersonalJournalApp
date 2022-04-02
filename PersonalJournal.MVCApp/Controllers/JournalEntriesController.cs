@@ -22,7 +22,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // GET: JournalEntries
         public async Task<IActionResult> Index()
         {
-            var personalJournalDBContext = _context.JournalEntries.Include(j => j.Category).Include(j => j.Mood).Include(j => j.Subsection1).Include(j => j.Subsection2).Include(j => j.Subsection3).Include(j => j.Subsection4).Include(j => j.Subsection5);
+            var personalJournalDBContext = _context.JournalEntries.Where(e => e.CreatedByUser == User.Identity.Name).Include(j => j.Category).Include(j => j.Mood).Include(j => j.Subsection1).Include(j => j.Subsection2).Include(j => j.Subsection3).Include(j => j.Subsection4).Include(j => j.Subsection5);
             return View(await personalJournalDBContext.ToListAsync());
         }
 
@@ -54,12 +54,12 @@ namespace PersonalJournal.MVCApp.Controllers
         // GET: JournalEntries/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title");
-            ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title");
+            ViewData["CategoryId"] = new SelectList(_context.Categories.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title");
+            ViewData["MoodId"] = new SelectList(_context.Moods.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title");
 
             List<SelectListItem> items = new List<SelectListItem>();
             items.Add(new SelectListItem { Text = "", Value = "" });
-            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            items.AddRange(new SelectList(_context.Subsections.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title"));
             ViewData["SubsectionId1"] = items;
             ViewData["SubsectionId2"] = items;
             ViewData["SubsectionId3"] = items;
@@ -78,16 +78,17 @@ namespace PersonalJournal.MVCApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                journalEntry.CreatedByUser = User.Identity.Name;
                 _context.Add(journalEntry);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title", journalEntry.CategoryId);
-            ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title", journalEntry.MoodId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title", journalEntry.CategoryId);
+            ViewData["MoodId"] = new SelectList(_context.Moods.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title", journalEntry.MoodId);
 
             List<SelectListItem> items = new List<SelectListItem>();
             items.Add(new SelectListItem { Text = "", Value = "" });
-            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            items.AddRange(new SelectList(_context.Subsections.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title"));
             ViewData["SubsectionId1"] = items;
             ViewData["SubsectionId2"] = items;
             ViewData["SubsectionId3"] = items;
@@ -115,12 +116,12 @@ namespace PersonalJournal.MVCApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title", journalEntry.CategoryId);
-            ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title", journalEntry.MoodId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title", journalEntry.CategoryId);
+            ViewData["MoodId"] = new SelectList(_context.Moods.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title", journalEntry.MoodId);
 
             List<SelectListItem> items = new List<SelectListItem>();
             items.Add(new SelectListItem { Text = "", Value = "" });
-            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            items.AddRange(new SelectList(_context.Subsections.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title"));
             ViewData["SubsectionId1"] = items;
             ViewData["SubsectionId2"] = items;
             ViewData["SubsectionId3"] = items;
@@ -167,12 +168,12 @@ namespace PersonalJournal.MVCApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Title", journalEntry.CategoryId);
-            ViewData["MoodId"] = new SelectList(_context.Moods, "Id", "Title", journalEntry.MoodId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title", journalEntry.CategoryId);
+            ViewData["MoodId"] = new SelectList(_context.Moods.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title", journalEntry.MoodId);
 
             List<SelectListItem> items = new List<SelectListItem>();
             items.Add(new SelectListItem { Text = "", Value = "" });
-            items.AddRange(new SelectList(_context.Subsections, "Id", "Title"));
+            items.AddRange(new SelectList(_context.Subsections.Where(e => e.CreatedByUser == User.Identity.Name), "Id", "Title"));
             ViewData["SubsectionId1"] = items;
             ViewData["SubsectionId2"] = items;
             ViewData["SubsectionId3"] = items;

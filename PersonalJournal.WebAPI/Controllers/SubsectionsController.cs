@@ -23,9 +23,9 @@ namespace PersonalJournal.WebAPI.Controllers
 
         // GET: api/Subsections
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Subsection>>> GetSubsections()
+        public async Task<ActionResult<IEnumerable<Subsection>>> GetSubsections(string createdByUser)
         {
-            return await _context.Subsections.ToListAsync();
+            return await _context.Subsections.Where(e => e.CreatedByUser == createdByUser).ToListAsync();
         }
 
         // GET: api/Subsections/5

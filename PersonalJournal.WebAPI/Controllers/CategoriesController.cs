@@ -23,9 +23,9 @@ namespace PersonalJournal.WebAPI.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategory(string createdByUser)
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Categories.Where(e => e.CreatedByUser == createdByUser).ToListAsync();
         }
 
         // GET: api/Categories/5

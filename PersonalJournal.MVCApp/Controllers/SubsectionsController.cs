@@ -25,7 +25,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // GET: Subsections
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Subsections.ToListAsync());
+            return View(await _context.Subsections.Where(e => e.CreatedByUser == User.Identity.Name).ToListAsync());
         }
 
         // GET: Subsections/Details/5
@@ -61,6 +61,7 @@ namespace PersonalJournal.MVCApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                subsection.CreatedByUser = User.Identity.Name;
                 _context.Add(subsection);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

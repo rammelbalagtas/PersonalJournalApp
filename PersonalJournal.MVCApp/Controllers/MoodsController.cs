@@ -25,7 +25,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // GET: Moods
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Moods.ToListAsync());
+            return View(await _context.Moods.Where(e => e.CreatedByUser == User.Identity.Name).ToListAsync());
         }
 
         // GET: Moods/Details/5
@@ -61,6 +61,7 @@ namespace PersonalJournal.MVCApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                mood.CreatedByUser = User.Identity.Name;
                 _context.Add(mood);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
