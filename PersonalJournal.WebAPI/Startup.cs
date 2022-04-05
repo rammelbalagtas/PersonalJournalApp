@@ -35,10 +35,8 @@ namespace PersonalJournal.WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PersonalJournal.WebAPI", Version = "v1" });
             });
 
-            //services.AddDbContext<PersonalJournalDBContext>(options =>
-            //        options.UseSqlServer(Configuration.GetConnectionString("PersonalJournalDB")));
-
-            services.AddDbContext<PersonalJournalDBContext>(options => options.UseInMemoryDatabase("PersonalJournalDB", builder => { }));
+            services.AddDbContext<PersonalJournalDBContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PersonalJournalDB")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

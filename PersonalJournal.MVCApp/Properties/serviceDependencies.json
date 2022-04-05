@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:IdentityDB"
-    },
     "mssql2": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:PersonalJournalDB"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:IdentityDB"
     }
   }
 }

@@ -35,13 +35,12 @@ namespace PersonalJournal.MVCApp
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDbContext<PersonalJournalDBContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("PersonalJournalDB")));
+
             services.AddControllersWithViews();
 
-            //services.AddDbContext<DbContext>(options =>
-            //        options.UseSqlServer(Configuration.GetConnectionString("PersonalJournalDB")));
-
-               services.AddDbContext<PersonalJournalDBContext>(options =>
-            options.UseInMemoryDatabase("PersonalJournalDB", builder => { }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
