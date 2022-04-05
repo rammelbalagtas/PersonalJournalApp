@@ -26,6 +26,7 @@ namespace PersonalJournal.Models.Models
         [DisplayName("Date and Time")]
         public DateTime DateTime { get; set; }
         public string Description { get; set; }
+        public string Location { get; set; }
 
         [ForeignKey("Subsection1")]
         [DisplayName("Subsection 1")]
