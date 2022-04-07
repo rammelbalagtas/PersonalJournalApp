@@ -23,9 +23,9 @@ namespace PersonalJournal.WebAPI.Controllers
 
         // GET: api/JournalEntries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JournalEntry>>> GetJournalEntries()
+        public async Task<ActionResult<IEnumerable<JournalEntry>>> GetJournalEntries(string createdByUser)
         {
-            return await _context.JournalEntries.ToListAsync();
+            return await _context.JournalEntries.Where(e => e.CreatedByUser == createdByUser).ToListAsync();
         }
 
         // GET: api/JournalEntries/5
