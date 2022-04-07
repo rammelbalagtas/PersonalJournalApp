@@ -129,7 +129,7 @@ namespace PersonalJournal.IntegrationTest
             //log in to the page first
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Identity/Account/Login/");
             var emailAddressInput = _webDriver.FindElement(By.Id("Input_Email"));
-            emailAddressInput.SendKeys("test9@gmail.com");
+            emailAddressInput.SendKeys("test1@gmail.com");
             var passwordInput = _webDriver.FindElement(By.Id("Input_Password"));
             passwordInput.SendKeys("Test@1234");
             var login = _webDriver.FindElement(By.Id("login-submit"));
