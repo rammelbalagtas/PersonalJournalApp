@@ -57,7 +57,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Title")] Mood mood)
+        public async Task<IActionResult> Create([Bind("Id,Title,CreatedByUser")] Mood mood)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,Title")] Mood mood)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,CreatedByUser")] Mood mood)
         {
             if (id != mood.Id)
             {

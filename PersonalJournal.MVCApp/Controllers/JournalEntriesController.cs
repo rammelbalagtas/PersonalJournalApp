@@ -74,7 +74,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,CategoryId,MoodId,DateTime,Description,SubsectionId1,SubsectionText1,SubsectionId2,SubsectionText2,SubsectionId3,SubsectionText3,SubsectionId4,SubsectionText4,SubsectionId5,SubsectionText5")] JournalEntry journalEntry)
+        public async Task<IActionResult> Create([Bind("Id,Title,CategoryId,MoodId,DateTime,Description,Location,SubsectionId1,SubsectionText1,SubsectionId2,SubsectionText2,SubsectionId3,SubsectionText3,SubsectionId4,SubsectionText4,SubsectionId5,SubsectionText5,CreatedByUser")] JournalEntry journalEntry)
         {
             if (ModelState.IsValid)
             {
@@ -141,7 +141,7 @@ namespace PersonalJournal.MVCApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,CategoryId,MoodId,DateTime,Description,SubsectionId1,SubsectionText1,SubsectionId2,SubsectionText2,SubsectionId3,SubsectionText3,SubsectionId4,SubsectionText4,SubsectionId5,SubsectionText5")] JournalEntry journalEntry)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,CategoryId,MoodId,DateTime,Description,Location,SubsectionId1,SubsectionText1,SubsectionId2,SubsectionText2,SubsectionId3,SubsectionText3,SubsectionId4,SubsectionText4,SubsectionId5,SubsectionText5,CreatedByUser")] JournalEntry journalEntry)
         {
             if (id != journalEntry.Id)
             {
