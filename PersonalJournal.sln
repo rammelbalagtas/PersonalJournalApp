@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalJournal.MVCApp", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalJournal.WebAPI", "PersonalJournal.WebAPI\PersonalJournal.WebAPI.csproj", "{A3AAFAC3-2EA9-475F-90C1-C43974F86681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalJournal.IntegrationTest", "PersonalJournal.IntegrationTest\PersonalJournal.IntegrationTest.csproj", "{9FBE75D9-9624-4445-B16A-2693BE46A04F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalJournal.IntegrationTest", "PersonalJournal.IntegrationTest\PersonalJournal.IntegrationTest.csproj", "{9FBE75D9-9624-4445-B16A-2693BE46A04F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

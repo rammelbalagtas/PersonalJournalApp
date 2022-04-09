@@ -54,6 +54,16 @@
 
             <div class="row form-group">
                 <div class="col-md-2 align-items-start">
+                    <label asp-for="Location" class="control-label"></label>
+                </div>
+                <div class="col-md-5 align-items-start">
+                    <input asp-for="Location" id="location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-2 align-items-start">
                     <label asp-for="Description" class="control-label"></label>
                 </div>
                 <div class="col-md-5 align-items-start">
@@ -142,4 +152,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_LocationAutoCompleteScripts");}
 }
+
