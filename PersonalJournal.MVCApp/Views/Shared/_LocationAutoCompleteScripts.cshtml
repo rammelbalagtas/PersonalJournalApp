@@ -1,7 +1,16 @@
 ﻿<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&libraries=places&key=AIzaSyDB-Kt1hP9uArQASqLK_jc428uOXQUuB2E"></script>
 <script type="text/javascript">
         google.maps.event.addDomListener(window, 'load', function () {
+
+            //add autocomplete functionality
             var locationInput = document.getElementById('location');
             let autocomplete = new google.maps.places.Autocomplete(locationInput);
+
+            //bypass the default behaviour when pressing Enter button on Location field(i.e., prevent auto save)
+            locationInput.addEventListener('keypress', function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                }
+            });
         });
 </script>
