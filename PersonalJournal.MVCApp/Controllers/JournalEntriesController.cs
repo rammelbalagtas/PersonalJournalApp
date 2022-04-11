@@ -22,10 +22,31 @@ namespace PersonalJournal.MVCApp.Controllers
         }
 
         // GET: JournalEntries
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string titleSearchString)
         {
-            var personalJournalDBContext = _context.JournalEntries.Where(e => e.CreatedByUser == User.Identity.Name).Include(j => j.Category).Include(j => j.Mood).Include(j => j.Subsection1).Include(j => j.Subsection2).Include(j => j.Subsection3).Include(j => j.Subsection4).Include(j => j.Subsection5);
-            return View(await personalJournalDBContext.ToListAsync());
+            if (!String.IsNullOrEmpty(titleSearchString))
+            {
+                var personalJournalDBContext = _context.JournalEntries
+                    .Where(e => e.CreatedByUser == User.Identity.Name && e.Title.Contains(titleSearchString))
+                    .Include(j => j.Category).Include(j => j.Mood)
+                    .Include(j => j.Subsection1)
+                    .Include(j => j.Subsection2)
+                    .Include(j => j.Subsection3)
+                    .Include(j => j.Subsection4)
+                    .Include(j => j.Subsection5);
+                return View(await personalJournalDBContext.ToListAsync());
+            } else
+            {
+                var personalJournalDBContext = _context.JournalEntries
+                    .Where(e => e.CreatedByUser == User.Identity.Name)
+                    .Include(j => j.Category).Include(j => j.Mood)
+                    .Include(j => j.Subsection1)
+                    .Include(j => j.Subsection2)
+                    .Include(j => j.Subsection3)
+                    .Include(j => j.Subsection4)
+                    .Include(j => j.Subsection5);
+                return View(await personalJournalDBContext.ToListAsync());
+            }
         }
 
         // GET: JournalEntries/Details/5
