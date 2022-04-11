@@ -22,11 +22,22 @@ namespace PersonalJournal.MVCApp.Controllers
         }
 
         // GET: JournalEntries
-        public async Task<IActionResult> Index(string titleSearchString)
+        public async Task<IActionResult> Index(string dateSortOrder, string titleSearchString)
         {
+
+            if (String.IsNullOrEmpty(dateSortOrder))
+            {
+                ViewBag.DateSortParam = "Date_Ascending";
+            } else
+            {
+                ViewBag.DateSortParam = dateSortOrder == "Date_Ascending" ? "Date_Descending" : "Date_Ascending";
+            }
+            
+
+            IQueryable<JournalEntry> journalEntries;
             if (!String.IsNullOrEmpty(titleSearchString))
             {
-                var personalJournalDBContext = _context.JournalEntries
+                journalEntries = _context.JournalEntries
                     .Where(e => e.CreatedByUser == User.Identity.Name && e.Title.Contains(titleSearchString))
                     .Include(j => j.Category).Include(j => j.Mood)
                     .Include(j => j.Subsection1)
@@ -34,10 +45,9 @@ namespace PersonalJournal.MVCApp.Controllers
                     .Include(j => j.Subsection3)
                     .Include(j => j.Subsection4)
                     .Include(j => j.Subsection5);
-                return View(await personalJournalDBContext.ToListAsync());
             } else
             {
-                var personalJournalDBContext = _context.JournalEntries
+                journalEntries = _context.JournalEntries
                     .Where(e => e.CreatedByUser == User.Identity.Name)
                     .Include(j => j.Category).Include(j => j.Mood)
                     .Include(j => j.Subsection1)
@@ -45,8 +55,23 @@ namespace PersonalJournal.MVCApp.Controllers
                     .Include(j => j.Subsection3)
                     .Include(j => j.Subsection4)
                     .Include(j => j.Subsection5);
-                return View(await personalJournalDBContext.ToListAsync());
             }
+
+            IOrderedQueryable<JournalEntry> results;
+            switch (dateSortOrder)
+            {
+                case "Date_Ascending":
+                    results = journalEntries.OrderBy(e => e.DateTime);
+                    break;
+                case "Date_Descending":
+                    results = journalEntries.OrderByDescending(e => e.DateTime);
+                    break;
+                default:
+                    results = journalEntries.OrderBy(e => e.DateTime);
+                    break;
+            }
+            return View(await results.ToListAsync());
+
         }
 
         // GET: JournalEntries/Details/5
