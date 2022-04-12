@@ -1,0 +1,61 @@
+﻿@*Guide: https://wicg.github.io/speech-api/#examples-recognition*@
+<script type="text/javascript">
+
+    // Test browser support
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+
+    if (window.SpeechRecognition === null) {
+
+    } else {
+
+        var subsectionText1 = document.getElementById('subsection-text1');
+        var subsection1Btn = document.getElementById('subsection1-text-btn');
+        var recognizing;
+
+        var recognizer = new window.SpeechRecognition();
+        recognizer.continuous = true;
+        reset();
+
+        recognizer.onresult = function (event) {
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    subsectionText1.value += event.results[i][0].transcript;
+                }
+            }
+        }
+
+        //// Start recognising
+        //recognizer.onresult = function (event) {
+        //    transcription = ""
+        //    for (var i = event.resultIndex; i < event.results.length; i++) {
+        //        if (event.results[i].isFinal) {
+        //            transcription = event.results[i][0].transcript + ' (Confidence: ' + event.results[i][0].confidence + ')';
+        //        } else {
+        //            transcription += event.results[i][0].transcript;
+        //        }
+        //    }
+        //    subsectionText1.textContent += transcription;
+        //};
+
+        subsection1Btn.addEventListener('click', function () {
+            //toggle between start and stop
+            if (recognizing) {
+                recognizer.stop();
+                reset();
+            } else {
+                subsectionText1.readOnly = true;
+                recognizer.interimResults = true;
+                recognizer.start();
+                recognizing = true;
+                subsection1Btn.textContent = "Click to stop speaking...";
+            }
+        });
+
+        function reset() {
+            recognizing = false;
+            subsectionText1.readOnly = false;
+            subsection1Btn.textContent = "Click to start speaking...";
+        }
+
+    }
+</script>

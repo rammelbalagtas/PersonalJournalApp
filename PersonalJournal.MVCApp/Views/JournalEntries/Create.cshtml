@@ -7,6 +7,11 @@
 <h4>Journal Entry</h4>
 <hr />
 
+@*<div class="col-md-1 align-items-start">
+        <button id="subsection1-text-btn">
+        </button>
+    </div>*@
+
 <div class="row">
     <div class="col-md-12">
         <form asp-action="Create">
@@ -80,10 +85,15 @@
                     <label asp-for="SubsectionId1" class="control-label"></label>
                     <select asp-for="SubsectionId1" class="form-control" asp-items="ViewBag.SubsectionId1"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6">
                     <label asp-for="SubsectionText1" class="control-label"></label>
-                    <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
-                    <span asp-validation-for="SubsectionText1" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="SubsectionText1" id="subsection-text1" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="subsection1-text-btn">
+                            @*<img class="mic-img" src="../Resources/mic.gif" height="30" width="30">*@
+                        </button>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -92,7 +102,7 @@
                     <label asp-for="SubsectionId2" class="control-label"></label>
                     <select asp-for="SubsectionId2" class="form-control" asp-items="ViewBag.SubsectionId2"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText2" class="control-label"></label>
                     <textarea rows="5" cols="50" asp-for="SubsectionText2" class="form-control"></textarea>
                     <span asp-validation-for="SubsectionText2" class="text-danger"></span>
@@ -104,7 +114,7 @@
                     <label asp-for="SubsectionId3" class="control-label"></label>
                     <select asp-for="SubsectionId3" class="form-control" asp-items="ViewBag.SubsectionId3"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText3" class="control-label"></label>
                     <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
                     <span asp-validation-for="SubsectionText3" class="text-danger"></span>
@@ -116,7 +126,7 @@
                     <label asp-for="SubsectionId4" class="control-label"></label>
                     <select asp-for="SubsectionId4" class="form-control" asp-items="ViewBag.SubsectionId1"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText4" class="control-label"></label>
                     <textarea rows="5" cols="50" asp-for="SubsectionText4" class="form-control"></textarea>
                     <span asp-validation-for="SubsectionText4" class="text-danger"></span>
@@ -128,7 +138,7 @@
                     <label asp-for="SubsectionId5" class="control-label"></label>
                     <select asp-for="SubsectionId5" class="form-control" asp-items="ViewBag.SubsectionId5"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText5" class="control-label"></label>
                     <textarea rows="5" cols="50" asp-for="SubsectionText5" class="form-control"></textarea>
                     <span asp-validation-for="SubsectionText5" class="text-danger"></span>
@@ -153,5 +163,6 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     @{await Html.RenderPartialAsync("_LocationAutoCompleteScripts");}
+    @{await Html.RenderPartialAsync("_SpeechToTExtScripts");}
 }
 
