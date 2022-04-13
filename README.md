@@ -18,6 +18,7 @@ This is a Personal Journal application where users can keep track of their daily
   - I added a sort functionality to sort the journal entry dates by either ascending or descending order.
   
 - **As part of my ancillary goals, I have started adding the speech-to-text functionality to populate subsection texts.**
+  - I am still finalizing the speech to text part, I am thinking to have a single microphone button for all the text fields to simplify the logic instead of having to switch the mic on and off for different subsection texts.   
 
 - I have added few integration tests for the CRUD operations. The test for the Create Journal Entry scenario is still pending.
 - I have fixed some issues with the app
