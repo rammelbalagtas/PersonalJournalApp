@@ -20,3 +20,8 @@ This is a Personal Journal application where users can keep track of their daily
 - **As part of my ancillary goals, I have started adding the speech-to-text functionality to populate subsection texts.**
 
 - I have added few integration tests for the CRUD operations. The test for the Create Journal Entry scenario is still pending.
+- I have fixed some issues with the app
+
+### Check-in 3 Notes
+
+[PENDING]
