@@ -8,7 +8,7 @@
 
     } else {
 
-        var subsectionText1 = document.getElementById('subsection-text1');
+        var subsectionText1 = document.getElementById('SubsectionText1');
         var subsection1Btn = document.getElementById('subsection1-text-btn');
         var recognizing;
 
@@ -44,7 +44,7 @@
                 reset();
             } else {
                 subsectionText1.readOnly = true;
-                recognizer.interimResults = true;
+               /* recognizer.interimResults = true;*/
                 recognizer.start();
                 recognizing = true;
                 subsection1Btn.textContent = "Click to stop speaking...";
