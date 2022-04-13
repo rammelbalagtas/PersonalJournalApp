@@ -17,4 +17,6 @@ This is a Personal Journal application where users can keep track of their daily
   - I added a search functionality for the journal entries where users can search a specific entry using the title
   - I added a sort functionality to sort the journal entry dates by either ascending or descending order.
   
-- **As part of my ancillary goals, I have started adding the speech-to-text functionality to populate each of the long text description.**
+- **As part of my ancillary goals, I have started adding the speech-to-text functionality to populate subsection texts.**
+
+- I have added few integration tests for the CRUD operations. The test for the Create Journal Entry scenario is still pending.
