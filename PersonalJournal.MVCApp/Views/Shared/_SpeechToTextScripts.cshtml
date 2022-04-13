@@ -1,5 +1,5 @@
-﻿@*Guide: https://wicg.github.io/speech-api/#examples-recognition*@
-<script type="text/javascript">
+﻿<script type="text/javascript" src="~/js/SpeechToTextRecognition.js"></script>
+@*<script type="text/javascript">
 
     // Test browser support
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
@@ -10,6 +10,12 @@
 
         var subsectionText1 = document.getElementById('SubsectionText1');
         var subsection1Btn = document.getElementById('subsection1-text-btn');
+        var micImage1 = document.getElementById('mic1-img');
+
+        var subsectionText2 = document.getElementById('SubsectionText2');
+        var subsection2Btn = document.getElementById('subsection2-text-btn');
+        var micImage2 = document.getElementById('mic2-img');
+
         var recognizing;
 
         var recognizer = new window.SpeechRecognition();
@@ -24,38 +30,23 @@
             }
         }
 
-        //// Start recognising
-        //recognizer.onresult = function (event) {
-        //    transcription = ""
-        //    for (var i = event.resultIndex; i < event.results.length; i++) {
-        //        if (event.results[i].isFinal) {
-        //            transcription = event.results[i][0].transcript + ' (Confidence: ' + event.results[i][0].confidence + ')';
-        //        } else {
-        //            transcription += event.results[i][0].transcript;
-        //        }
-        //    }
-        //    subsectionText1.textContent += transcription;
-        //};
-
         subsection1Btn.addEventListener('click', function () {
             //toggle between start and stop
             if (recognizing) {
                 recognizer.stop();
                 reset();
             } else {
-                subsectionText1.readOnly = true;
                /* recognizer.interimResults = true;*/
                 recognizer.start();
                 recognizing = true;
-                subsection1Btn.textContent = "Click to stop speaking...";
+                micImage1.src = "~/mic-animate.gif";
             }
         });
 
         function reset() {
             recognizing = false;
-            subsectionText1.readOnly = false;
-            subsection1Btn.textContent = "Click to start speaking...";
+            micImage1.src = "~/mic.gif";
         }
 
     }
-</script>
+</script>*@

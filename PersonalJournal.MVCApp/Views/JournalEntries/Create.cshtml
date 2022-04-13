@@ -90,10 +90,9 @@
                     <div class="textarea-container">
                         <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
                         <button type="button" class="toggle-speak-btn" id="subsection1-text-btn">
-                            @*<img class="mic-img" src="../Resources/mic.gif" height="30" width="30">*@
+                            <img class="mic-img" id="mic1-img" src="~/mic.gif" height="30" width="30">
                         </button>
                     </div>
-                    
                 </div>
             </div>
 
@@ -104,8 +103,12 @@
                 </div>
                 <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText2" class="control-label"></label>
-                    <textarea rows="5" cols="50" asp-for="SubsectionText2" class="form-control"></textarea>
-                    <span asp-validation-for="SubsectionText2" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="SubsectionText2" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="subsection2-text-btn">
+                            <img class="mic-img" id="mic2-img" src="~/mic.gif" height="30" width="30">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -163,6 +166,6 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     @{await Html.RenderPartialAsync("_LocationAutoCompleteScripts");}
-    @{await Html.RenderPartialAsync("_SpeechToTExtScripts");}
+    @{await Html.RenderPartialAsync("_SpeechToTextScripts");}
 }
 

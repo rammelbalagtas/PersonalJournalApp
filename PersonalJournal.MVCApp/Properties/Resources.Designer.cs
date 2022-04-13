@@ -59,25 +59,5 @@ namespace PersonalJournal.MVCApp.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] mic {
-            get {
-                object obj = ResourceManager.GetObject("mic", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] mic_animate {
-            get {
-                object obj = ResourceManager.GetObject("mic_animate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }
