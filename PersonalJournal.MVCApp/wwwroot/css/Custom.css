@@ -3,6 +3,16 @@
     margin: 0;
 }
 
+/* change background color, font, font-style*/
+body {
+    background-color: #FCF6F5FF;
+    font-family: 'Caslon', 'Times New Roman', Times, serif;
+}
+
+nav {
+    background-color: #FCF6F5FF;
+}
+
 .toggle-speak-btn {
     border: 0;
     background-color: transparent;
