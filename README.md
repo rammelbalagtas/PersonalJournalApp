@@ -25,4 +25,8 @@ This is a Personal Journal application where users can keep track of their daily
 
 ### Check-in 3 Notes
 
-[PENDING]
+Planned Activities for Check-in 3:
+- Finalize the integration tests
+- Add more custom CSS to change the look and feel of the website
+- Add date filter in the index page 
+- Finalize the speech-to-text functionality for the Create/Edit Journal Entries
