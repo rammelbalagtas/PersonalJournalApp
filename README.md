@@ -12,6 +12,7 @@ This is a Personal Journal application where users can keep track of their daily
 
 ### Check-in 2 Notes
 - **As part of my ancillary goals, I have added a location field with auto-complete functionality which will access the Google Places API using an API Key.**
+Note: In case this functionality not working in the local server, try using the Azure hosted website.
 
 - **As part of my ancillary goals, I modifed the index page to add extra functionality aside from the default ones.**
   - I added a search functionality for the journal entries where users can search a specific entry using the title
