@@ -5,12 +5,8 @@
 
 /* change background color, font, font-style*/
 body {
-    background-color: #FCF6F5FF;
+    background-color: #e7eff6;
     font-family: 'Caslon', 'Times New Roman', Times, serif;
-}
-
-nav {
-    background-color: #FCF6F5FF;
 }
 
 .toggle-speak-btn {
