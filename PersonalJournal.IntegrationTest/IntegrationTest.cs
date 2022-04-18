@@ -78,7 +78,7 @@ namespace PersonalJournal.IntegrationTest
             simulateLogin();
             //click on one record, modify the value and submit
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Categories");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(1)")).Click();
+            _webDriver.FindElement(By.ClassName("fa-edit")).Click();
             var titleInput = _webDriver.FindElement(By.Id("Title"));
             titleInput.Clear();
             titleInput.SendKeys("Category Test Edit");
@@ -92,7 +92,7 @@ namespace PersonalJournal.IntegrationTest
             simulateLogin();
             //click on one record to view details
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Categories");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(2)")).Click();
+            _webDriver.FindElement(By.CssSelector("td > a")).Click();
             Assert.IsTrue(_webDriver.Title.Contains("Category Details"));
         }
 
@@ -101,7 +101,7 @@ namespace PersonalJournal.IntegrationTest
         {
             simulateLogin();
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Categories");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(3)")).Click();
+            _webDriver.FindElement(By.ClassName("fa-trash-alt")).Click();
             Assert.IsTrue(_webDriver.Title.Contains("Delete Category"));
         }
 
@@ -141,7 +141,7 @@ namespace PersonalJournal.IntegrationTest
             simulateLogin();
             //click on one record, modify the value and submit
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Subsections");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(1)")).Click();
+            _webDriver.FindElement(By.ClassName("fa-edit")).Click();
             var titleInput = _webDriver.FindElement(By.Id("Title"));
             titleInput.Clear();
             titleInput.SendKeys("Subsection Test Edit");
@@ -154,7 +154,7 @@ namespace PersonalJournal.IntegrationTest
             simulateLogin();
             //click on one record to view details
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Subsections");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(2)")).Click();
+            _webDriver.FindElement(By.CssSelector("td > a")).Click();
             Assert.IsTrue(_webDriver.Title.Contains("Subsection Details"));
         }
 
@@ -163,7 +163,7 @@ namespace PersonalJournal.IntegrationTest
         {
             simulateLogin();
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Subsections");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(3)")).Click();
+            _webDriver.FindElement(By.ClassName("fa-trash-alt")).Click();
             Assert.IsTrue(_webDriver.Title.Contains("Delete Subsection"));
         }
 
@@ -201,7 +201,7 @@ namespace PersonalJournal.IntegrationTest
             simulateLogin();
             //click on one record, modify the value and submit
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Moods");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(1)")).Click();
+            _webDriver.FindElement(By.ClassName("fa-edit")).Click();
             var titleInput = _webDriver.FindElement(By.Id("Title"));
             titleInput.Clear();
             titleInput.SendKeys("Mood Test Edit");
@@ -214,7 +214,7 @@ namespace PersonalJournal.IntegrationTest
             simulateLogin();
             //click on one record to view details
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Moods");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(2)")).Click();
+            _webDriver.FindElement(By.CssSelector("td > a")).Click();
             Assert.IsTrue(_webDriver.Title.Contains("Mood Type Details"));
         }
 
@@ -223,7 +223,7 @@ namespace PersonalJournal.IntegrationTest
         {
             simulateLogin();
             _webDriver.Navigate().GoToUrl("https://localhost:5001/Moods");
-            _webDriver.FindElement(By.CssSelector("table tr:nth-child(1) td>a:nth-child(3)")).Click();
+            _webDriver.FindElement(By.ClassName("fa-trash-alt")).Click();
             Assert.IsTrue(_webDriver.Title.Contains("Delete Mood Type"));
         }
 
@@ -262,6 +262,7 @@ namespace PersonalJournal.IntegrationTest
             var moodDropdown = new SelectElement(_webDriver.FindElement(By.Id("MoodId")));
             moodDropdown.SelectByIndex(0);
 
+            //when testing from localhost, this might have some issues
             var locationInput = _webDriver.FindElement(By.Id("location"));
             locationInput.SendKeys("Eaton Centre, Yonge Street, Toronto, ON, Canada");
 
@@ -274,29 +275,29 @@ namespace PersonalJournal.IntegrationTest
             descriptionInput.SendKeys("Journal Description");
 
             var subsection1Dropdown = new SelectElement(_webDriver.FindElement(By.Id("SubsectionId1")));
-            subsection1Dropdown.SelectByIndex(0);
+            subsection1Dropdown.SelectByIndex(1);
             var subsection1Text = _webDriver.FindElement(By.Id("SubsectionText1"));
             subsection1Text.SendKeys("Subsection 1 Test Text");
 
             var subsection2Dropdown = new SelectElement(_webDriver.FindElement(By.Id("SubsectionId2")));
-            subsection2Dropdown.SelectByIndex(0);
+            subsection2Dropdown.SelectByIndex(1);
             var subsection2Text = _webDriver.FindElement(By.Id("SubsectionText2"));
-            subsection1Text.SendKeys("Subsection 2 Test Text");
+            subsection2Text.SendKeys("Subsection 2 Test Text");
 
             var subsection3Dropdown = new SelectElement(_webDriver.FindElement(By.Id("SubsectionId3")));
-            subsection3Dropdown.SelectByIndex(0);
+            subsection3Dropdown.SelectByIndex(1);
             var subsection3Text = _webDriver.FindElement(By.Id("SubsectionText3"));
-            subsection1Text.SendKeys("Subsection 3 Test Text");
+            subsection3Text.SendKeys("Subsection 3 Test Text");
 
             var subsection4Dropdown = new SelectElement(_webDriver.FindElement(By.Id("SubsectionId4")));
-            subsection4Dropdown.SelectByIndex(0);
+            subsection4Dropdown.SelectByIndex(1);
             var subsection4Text = _webDriver.FindElement(By.Id("SubsectionText4"));
-            subsection1Text.SendKeys("Subsection 4 Test Text");
+            subsection4Text.SendKeys("Subsection 4 Test Text");
 
             var subsection5Dropdown = new SelectElement(_webDriver.FindElement(By.Id("SubsectionId5")));
-            subsection5Dropdown.SelectByIndex(0);
+            subsection5Dropdown.SelectByIndex(1);
             var subsection5Text = _webDriver.FindElement(By.Id("SubsectionText5"));
-            subsection1Text.SendKeys("Subsection 5 Test Text");
+            subsection5Text.SendKeys("Subsection 5 Test Text");
 
             titleInput.Submit();
         }
