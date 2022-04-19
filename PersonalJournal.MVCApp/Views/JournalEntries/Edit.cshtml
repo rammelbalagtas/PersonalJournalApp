@@ -69,8 +69,12 @@
                     <label asp-for="Description" class="control-label"></label>
                 </div>
                 <div class="col-md-5 align-items-start">
-                    <textarea rows="5" cols="50" asp-for="Description" class="form-control"></textarea>
-                    <span asp-validation-for="Description" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="Description" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="description-text-btn">
+                            <img class="mic-img" id="mic-desc" src="~/mic.gif" height="30" width="30">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -82,10 +86,14 @@
                     <label asp-for="SubsectionId1" class="control-label"></label>
                     <select asp-for="SubsectionId1" class="form-control" asp-items="ViewBag.SubsectionId1"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6">
                     <label asp-for="SubsectionText1" class="control-label"></label>
-                    <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
-                    <span asp-validation-for="SubsectionText1" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="SubsectionText1" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="subsection1-text-btn">
+                            <img class="mic-img" id="mic-sub1" src="~/mic.gif" height="30" width="30">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -94,10 +102,14 @@
                     <label asp-for="SubsectionId2" class="control-label"></label>
                     <select asp-for="SubsectionId2" class="form-control" asp-items="ViewBag.SubsectionId2"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText2" class="control-label"></label>
-                    <textarea rows="5" cols="50" asp-for="SubsectionText2" class="form-control"></textarea>
-                    <span asp-validation-for="SubsectionText2" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="SubsectionText2" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="subsection2-text-btn">
+                            <img class="mic-img" id="mic-sub2" src="~/mic.gif" height="30" width="30">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -106,10 +118,14 @@
                     <label asp-for="SubsectionId3" class="control-label"></label>
                     <select asp-for="SubsectionId3" class="form-control" asp-items="ViewBag.SubsectionId3"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText3" class="control-label"></label>
-                    <textarea rows="5" cols="50" asp-for="SubsectionText3" class="form-control"></textarea>
-                    <span asp-validation-for="SubsectionText3" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="SubsectionText3" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="subsection3-text-btn">
+                            <img class="mic-img" id="mic-sub3" src="~/mic.gif" height="30" width="30">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -118,10 +134,14 @@
                     <label asp-for="SubsectionId4" class="control-label"></label>
                     <select asp-for="SubsectionId4" class="form-control" asp-items="ViewBag.SubsectionId1"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText4" class="control-label"></label>
-                    <textarea rows="5" cols="50" asp-for="SubsectionText4" class="form-control"></textarea>
-                    <span asp-validation-for="SubsectionText4" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="SubsectionText4" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="subsection4-text-btn">
+                            <img class="mic-img" id="mic-sub4" src="~/mic.gif" height="30" width="30">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -130,10 +150,14 @@
                     <label asp-for="SubsectionId5" class="control-label"></label>
                     <select asp-for="SubsectionId5" class="form-control" asp-items="ViewBag.SubsectionId5"></select>
                 </div>
-                <div class="col-md-5 align-items-start">
+                <div class="col-md-6 align-items-start">
                     <label asp-for="SubsectionText5" class="control-label"></label>
-                    <textarea rows="5" cols="50" asp-for="SubsectionText5" class="form-control"></textarea>
-                    <span asp-validation-for="SubsectionText5" class="text-danger"></span>
+                    <div class="textarea-container">
+                        <textarea rows="5" cols="50" asp-for="SubsectionText5" class="form-control"></textarea>
+                        <button type="button" class="toggle-speak-btn" id="subsection5-text-btn">
+                            <img class="mic-img" id="mic-sub5" src="~/mic.gif" height="30" width="30">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -151,4 +175,5 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     @{await Html.RenderPartialAsync("_LocationAutoCompleteScripts");}
+    @{await Html.RenderPartialAsync("_SpeechToTextScripts");}
 }
