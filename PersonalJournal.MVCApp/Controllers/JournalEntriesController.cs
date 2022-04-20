@@ -22,7 +22,7 @@ namespace PersonalJournal.MVCApp.Controllers
         }
 
         // GET: JournalEntries
-        public async Task<IActionResult> Index(string dateSortOrder, string titleSearchString)
+        public async Task<IActionResult> Index(string dateSortOrder, string titleSearchString, DateTime fromDate, DateTime toDate)
         {
 
             if (String.IsNullOrEmpty(dateSortOrder))
@@ -32,13 +32,21 @@ namespace PersonalJournal.MVCApp.Controllers
             {
                 ViewBag.DateSortParam = dateSortOrder == "Date_Ascending" ? "Date_Descending" : "Date_Ascending";
             }
-            
+
+            DateTime toDateValue;
+            if (toDate == DateTime.MinValue)
+            {
+                toDateValue = DateTime.MaxValue;
+            } else
+            {
+                toDateValue = toDate;
+            }
 
             IQueryable<JournalEntry> journalEntries;
             if (!String.IsNullOrEmpty(titleSearchString))
             {
                 journalEntries = _context.JournalEntries
-                    .Where(e => e.CreatedByUser == User.Identity.Name && e.Title.Contains(titleSearchString))
+                    .Where(e => e.CreatedByUser == User.Identity.Name && e.Title.Contains(titleSearchString) && e.DateTime.Date >= fromDate.Date && e.DateTime.Date <= toDateValue.Date)
                     .Include(j => j.Category).Include(j => j.Mood)
                     .Include(j => j.Subsection1)
                     .Include(j => j.Subsection2)
@@ -48,7 +56,7 @@ namespace PersonalJournal.MVCApp.Controllers
             } else
             {
                 journalEntries = _context.JournalEntries
-                    .Where(e => e.CreatedByUser == User.Identity.Name)
+                    .Where(e => e.CreatedByUser == User.Identity.Name && e.DateTime.Date >= fromDate.Date && e.DateTime.Date <= toDateValue.Date)
                     .Include(j => j.Category).Include(j => j.Mood)
                     .Include(j => j.Subsection1)
                     .Include(j => j.Subsection2)

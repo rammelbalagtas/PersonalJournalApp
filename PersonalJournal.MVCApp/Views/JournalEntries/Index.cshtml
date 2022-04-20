@@ -6,15 +6,24 @@
 
 @using (Html.BeginForm())
 {
+<div class="filter-container">
+    <h4>Filter Results:</h4>
     <p>
         Search from Title: @Html.TextBox("TitleSearchString")
-        <input type="submit" value="Search" />
     </p>
+    <p>
+        Date Range: <input type="date" name="fromDate" /> to <input type="date" name="toDate" />
+    </p>
+    <p>
+        <input class="btn-sm btn-primary" type="submit" value="Search" />
+    </p>
+</div>
 }
 
 <p>
     <a asp-action="Create" class="btn btn-success fas fa-file"> New</a>
 </p>
+
 <table class="table table-sm table-hover">
     <thead>
         <tr>
