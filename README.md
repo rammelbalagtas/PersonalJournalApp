@@ -26,8 +26,7 @@ Note: In case this functionality not working in the local server, try using the 
 
 ### Check-in 3 Notes
 
-Planned Activities for Check-in 3:
-- Finalize the integration tests
-- Add more custom CSS to change the look and feel of the website
-- Add date filter in the index page 
-- Finalize the speech-to-text functionality for the Create/Edit Journal Entries
+- Finalize the integration tests for the CRUD operations
+- Fix issues with speech to text recognition
+- Add date filter in the index page and modify custom CSS for the filter components
+- Finalize and add the speech-to-text functionality for all the long text fields in Create/Edit Journal Entries
