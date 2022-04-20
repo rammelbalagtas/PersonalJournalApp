@@ -30,3 +30,10 @@ Note: In case this functionality not working in the local server, try using the 
 - Fix issues with speech to text recognition
 - Add date filter in the index page and modify custom CSS for the filter components
 - Finalize and add the speech-to-text functionality for all the long text fields in Create/Edit Journal Entries
+- As an added feature, I customized the home page and added an API call to fetch random quotes from a public API (https://nodejs-quoteapp.herokuapp.com/quote/3)
+
+### Homepage Screenshot
+![image](https://user-images.githubusercontent.com/22863383/164139370-b1132a27-4ee9-479a-86d2-7dbb47d49367.png)
+
+
+
