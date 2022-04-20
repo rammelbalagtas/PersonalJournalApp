@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using PersonalJournal.Models.Models;
 using PersonalJournal.MVCApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace PersonalJournal.MVCApp.Controllers
@@ -18,9 +22,21 @@ namespace PersonalJournal.MVCApp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            string baseUrl = "https://nodejs-quoteapp.herokuapp.com/quote/3";
+            try
+            {
+                HttpClient client = new HttpClient();
+                var response = await client.GetAsync(baseUrl);
+                var jsonString = response.IsSuccessStatusCode ? await response.Content.ReadAsStringAsync() : null;
+                var quoteList = JsonConvert.DeserializeObject<Quote>(jsonString);
+                return View(quoteList);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public IActionResult Privacy()

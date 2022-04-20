@@ -23,6 +23,17 @@ body {
     padding: 0;
 }
 
+.quote-container {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    align-content: center;
+    text-align: center;
+    word-wrap: break-word;
+    font-family: Tahoma, 'Times New Roman', Times, serif;
+    background: rgb(154,213,214);
+    background: linear-gradient(0deg, rgba(154,213,214,1) 0%, rgba(230,233,222,1) 64%);
+}
+
 .filter-container {
     border: 1px solid #ccc;
     padding-top: 5px;
